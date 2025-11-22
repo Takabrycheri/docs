@@ -1,0 +1,101 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2ea44f;
+  --ifm-color-primary-dark: #2c974b;
+  --ifm-color-primary-darker: #22863a;
+  --ifm-color-primary-darkest: #165c26;
+  --ifm-color-primary-light: #3fb865;
+  --ifm-color-primary-lighter: #56c47a;
+  --ifm-color-primary-lightest: #79d49a;
+  --ifm-navbar-height: 78px;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #3fb865;
+  --ifm-color-primary-dark: #37a05a;
+  --ifm-color-primary-darker: #2f8f4f;
+  --ifm-color-primary-darkest: #1f5f34;
+  --ifm-color-primary-light: #58c877;
+  --ifm-color-primary-lighter: #79d492;
+  --ifm-color-primary-lightest: #9fe3b1;
+  --ifm-background-color: #0a1120;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+body.docs-doc-page,
+body[class*='docs-doc-page'] {
+  background: #0a1120 !important;
+  color: #d3d9eb;
+}
+
+body.docs-doc-page .navbar,
+body[class*='docs-doc-page'] .navbar {
+  background: transparent;
+}
+
+body.docs-doc-page .main-wrapper,
+body[class*='docs-doc-page'] .main-wrapper,
+body.docs-doc-page .container,
+body[class*='docs-doc-page'] .container {
+  background: #0a1120 !important;
+}
+
+body.docs-doc-page .theme-doc-sidebar-container,
+body[class*='docs-doc-page'] .theme-doc-sidebar-container,
+body.docs-doc-page .theme-doc-sidebar-container .menu,
+body[class*='docs-doc-page'] .theme-doc-sidebar-container .menu {
+  background: #0d1527 !important;
+}
+
+body.docs-doc-page .theme-doc-content,
+body[class*='docs-doc-page'] .theme-doc-content,
+body.docs-doc-page [class*='docMainContainer'],
+body[class*='docs-doc-page'] [class*='docMainContainer'],
+body.docs-doc-page .docItemContainer,
+body[class*='docs-doc-page'] .docItemContainer,
+body.docs-doc-page [class*='docItemCont'],
+body[class*='docs-doc-page'] [class*='docItemCont'] {
+  background: #0a1120 !important;
+}
+
+body.docs-doc-page [class*='docSidebar'],
+body[class*='docs-doc-page'] [class*='docSidebar'] {
+  background: #0d1527 !important;
+}
+
+body.docs-doc-page .theme-doc-sidebar-menu,
+body[class*='docs-doc-page'] .theme-doc-sidebar-menu {
+  color: #d3d9eb;
+}
+
+body.docs-doc-page .menu__link,
+body[class*='docs-doc-page'] .menu__link {
+  color: #b8c4e6;
+}
+
+body.docs-doc-page .menu__link--active,
+body[class*='docs-doc-page'] .menu__link--active {
+  color: #fff;
+}
+
+:global(.homepageLayout) {
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  display: flex;
+  flex-direction: column;
+  background: #0a1120;
+}
+
+:global(.homepageLayout) > :not(footer) {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}

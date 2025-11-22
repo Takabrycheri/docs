@@ -1,0 +1,88 @@
+.footer {
+  margin-top: 0;
+  border-top: none;
+  padding: 3rem 1.25rem 3rem;
+  text-align: center;
+  color: #4b5563;
+  background: #f5f7fb;
+  border-radius: 1rem 1rem 0 0;
+  box-sizing: border-box;
+}
+
+.socialRow {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.socialLink {
+  color: #5f6a84;
+  transition: color 0.2s ease;
+}
+
+.socialLink:hover {
+  color: var(--ifm-color-primary);
+}
+
+.socialIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: inherit;
+}
+
+.footerCopy {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+[data-theme='dark'] .footer {
+  color: #a5b4cf;
+  background: #0e1628;
+}
+
+[data-theme='dark'] .socialLink {
+  color: #b8c5e0;
+}
+
+[data-theme='dark'] .footerCopy {
+  color: #9aa8c6;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+@media (min-width: 997px) {
+  :global(body.docs-doc-page) .footer,
+  :global(body[class*='docs-doc-page']) .footer {
+    margin-left: var(--doc-sidebar-width);
+    width: calc(100% - var(--doc-sidebar-width));
+    border-top-left-radius: 0;
+  }
+}
+
+:global(.homepageLayout) .footer {
+  background: transparent;
+  color: #a5b4cf;
+  border-radius: 0;
+  margin-left: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+:global(.homepageLayout) .socialLink {
+  color: #b8c5e0;
+}
+
+:global(.homepageLayout) .footerCopy {
+  color: #a5b4cf;
+}
