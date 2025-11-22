@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Footer from '@theme/Footer';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Head from '@docusaurus/Head';
 
 import {DocsIcon, HourglassIcon, WaveIcon} from '@site/src/components/icons';
 
@@ -44,7 +45,11 @@ export default function Home(): ReactElement {
     `Copyright © ${new Date().getFullYear()} ${title}`;
 
   return (
-    <Layout title={title} description={tagline} wrapperClassName="homepageLayout" noFooter>
+    <>
+      <Head>
+        <meta name="algolia-site-verification" content="5D06CAFCB13CF2D6" />
+      </Head>
+      <Layout title={title} description={tagline} wrapperClassName="homepageLayout" noFooter>
       <div className={styles.pageRoot}>
         <div className={styles.surface}>
           <section className={styles.heroSection}>
@@ -94,6 +99,7 @@ export default function Home(): ReactElement {
         </div>
         <Footer />
       </div>
-    </Layout>
+      </Layout>
+    </>
   );
 }

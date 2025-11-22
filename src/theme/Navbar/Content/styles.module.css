@@ -80,10 +80,6 @@
   line-height: 1.2;
 }
 
-.brandCopyHidden {
-  display: inherit;
-}
-
 .brandTitle {
   font-size: 1rem;
   font-weight: 700;
@@ -122,65 +118,52 @@
   }
 }
 
-.searchField {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.searchContainer {
+  flex: 0 0 260px;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: 2.25rem;
+}
+
+.searchContainer :global(.DocSearch-Button) {
+  width: 100%;
+  height: 2.85rem;
   border-radius: 0.75rem;
   border: 1px solid rgba(15, 23, 42, 0.16);
   background: #fff;
   padding: 0 1.1rem;
-  height: 2.85rem;
-  flex: 0 1 260px;
-  max-width: 260px;
-  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: #4b5563;
+  font-size: 0.9rem;
 }
 
-[data-theme='dark'] .searchField {
+.searchContainer :global(.DocSearch-Button:hover) {
+  border-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .searchContainer :global(.DocSearch-Button) {
   border-color: rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.03);
+  color: #cbd5f5;
 }
 
-.searchField :global(.app-icon) {
-  width: 1.45rem;
-  height: 1.45rem;
+.searchContainer :global(.DocSearch-Button .DocSearch-Search-Icon) {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
-.searchInput {
-  border: none;
-  background: transparent;
+.searchContainer :global(.DocSearch-Button-Placeholder) {
   font-size: 0.9rem;
   color: inherit;
-  width: 100%;
-}
-
-.searchInput:focus {
-  outline: none;
-}
-
-.searchClose {
-  border: none;
-  background: rgba(15, 23, 42, 0.08);
-  border-radius: 0.65rem;
-  width: 2rem;
-  height: 2rem;
-  font-size: 1.25rem;
-  color: #1f2937;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-[data-theme='dark'] .searchClose {
-  background: rgba(255, 255, 255, 0.15);
-  color: #f8fafc;
 }
 
 .actionsSection {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.85rem;
   flex: 0 0 auto;
 }
 
@@ -217,10 +200,6 @@
 
 [data-theme='dark'] .iconButton:hover {
   background: rgba(255, 255, 255, 0.12);
-}
-
-.searchToggle {
-  display: none;
 }
 
 .colorModeToggle {
@@ -345,12 +324,6 @@
 }
 
 @media (max-width: 996px) {
-  .brandCopyHidden {
-    display: none !important;
-  }
-  .brandCopyHidden {
-    display: none !important;
-  }
   .navShell {
     flex-direction: row;
     align-items: center;
@@ -371,18 +344,17 @@
     color: inherit;
   }
 
-  .searchField {
+  .searchContainer {
     width: 100%;
     margin-left: 0;
     max-width: none;
-    display: none;
-    border-width: 1px;
     order: 3;
     margin-top: 0.35rem;
+    margin-right: 0;
   }
 
-  .searchField[data-open='true'] {
-    display: inline-flex;
+  .searchContainer :global(.DocSearch-Button) {
+    width: 100%;
   }
 
   .secondaryLinks {
@@ -467,30 +439,6 @@
     width: auto;
     justify-content: flex-end;
     gap: 0.4rem;
-    order: 3;
-  }
-
-  .searchToggle {
-    display: inline-flex;
-  }
-
-  .actionsSection .iconButton:not(.searchToggle),
-  .actionsSection .colorModeToggle {
-    display: none;
-  }
-}
-
-@media (min-width: 997px) {
-  .searchToggle {
-    display: none;
-  }
-
-  .actionsSection .iconButton:not(.searchToggle),
-  .actionsSection .colorModeToggle {
-    display: inline-flex;
-  }
-
-  .searchClose {
-    display: none !important;
+    order: 4;
   }
 }

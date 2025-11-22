@@ -108,6 +108,14 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    algolia: {
+      appId: 'L4TAFLN17R',
+      apiKey: '1e659818c0077c6647107525a8d4e38c',
+      indexName: 'Takabrycheri Docs',
+      contextualSearch: true,
+      searchParameters: {},
+      insights: true,
+    },
   } satisfies Preset.ThemeConfig,
 };
 

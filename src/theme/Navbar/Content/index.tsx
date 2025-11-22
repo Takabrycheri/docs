@@ -11,9 +11,10 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import NavbarItem from '@theme/NavbarItem';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 
-import {GitHubIcon, SearchIcon} from '@site/src/components/icons';
+import {GitHubIcon} from '@site/src/components/icons';
 
 import styles from './styles.module.css';
+import SearchBar from '@theme/SearchBar';
 
 type UnknownNavbarItem = Record<string, unknown>;
 
@@ -54,7 +55,6 @@ function ActionIcon({label, destination}: {label?: string; destination?: string}
 }
 
 export default function NavbarContent(): ReactElement {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
@@ -85,7 +85,7 @@ export default function NavbarContent(): ReactElement {
     (actionHref && !actionTo ? 'noreferrer' : undefined);
   const ActionComponent = (actionTo ? Link : 'a') as ElementType;
 
-  const searchFieldId = 'navbar-search-input';
+  const hasAlgoliaSearch = Boolean(siteConfig.themeConfig?.algolia);
 
   return (
     <div className={clsx(styles.navWrapper, isMenuOpen && styles.menuOpen)}>
@@ -108,7 +108,7 @@ export default function NavbarContent(): ReactElement {
                 loading="eager"
               />
             </span>
-            <span className={clsx(styles.brandCopy, isSearchOpen && styles.brandCopyHidden)}>
+            <span className={styles.brandCopy}>
               <span className={styles.brandTitle}>{title}</span>
               <span className={styles.brandSubtitle}>{brandSubtitle}</span>
             </span>
@@ -135,34 +135,13 @@ export default function NavbarContent(): ReactElement {
           </div>
         )}
 
-        <label
-          className={styles.searchField}
-          htmlFor={searchFieldId}
-          data-open={isSearchOpen ? 'true' : 'false'}>
-          <span className={styles.srOnly}>Search</span>
-          <SearchIcon />
-          <input id={searchFieldId} type="text" placeholder="Search" className={styles.searchInput} />
-          <button
-            type="button"
-            aria-label="Close search"
-            className={styles.searchClose}
-            onClick={() => setIsSearchOpen(false)}>
-            ×
-          </button>
-        </label>
+        {hasAlgoliaSearch && (
+          <div className={styles.searchContainer}>
+            <SearchBar />
+          </div>
+        )}
 
         <div className={styles.actionsSection}>
-          {!isSearchOpen && (
-            <button
-              type="button"
-              className={clsx(styles.iconButton, styles.searchToggle)}
-              aria-controls={searchFieldId}
-              aria-expanded={isSearchOpen}
-              onClick={() => setIsSearchOpen(true)}>
-              <span className={styles.srOnly}>Toggle search</span>
-              <SearchIcon />
-            </button>
-          )}
           <ActionComponent
             className={styles.iconButton}
             {...(actionTo
